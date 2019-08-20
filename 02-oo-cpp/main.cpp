@@ -6,50 +6,34 @@
 #include "experimentSum.hpp"
 
 #include <iostream>
+#include <utility>
 
-void do_experiment(Experiment &e, int n, std::string &name) {
+std::pair<double, double> do_experiment(Experiment &e, int n) {
     e.generate_vector(n);
-    e.run();
-    if (e.duration() < 0.1) {
-        std::cout << name << double(e) << std::endl;
+    return e.run();
+}
+
+void mean_std_experiment(Experiment &e, std::string &name) {
+    std::vector<std::pair<double, double>> results_arr;
+    std::cout << std::endl << name << std::endl;
+    int n = 10; 
+    int n_max = 1000000;
+
+    // Run experiments
+    for (n; n <= n_max; n *=10) {
+        results_arr.push_back(do_experiment(e, n));
     }
-}
 
-void do_experiment_noprint(Experiment &e, int n) {
-    e.generate_vector(n);
-    e.run();
-}
-
-void min_max_experiment(Experiment &e, std::string &name) {
-    double min;
-    double max;
-    std::cout << name << std::endl;
-    for (int n = 10; n <= 1000000; n *=10) {
+    // Print results
+    n = 10;
+    for (int i = 0; i < results_arr.size(); i++) {
         std::cout << "n = " << n << std::endl;
-        for (int i = 10; i > 0; i--) {
-            do_experiment_noprint(e, n);
-            if (i == 10) {
-                min = e.duration();
-                max = e.duration();
-            } else {
-                if (e.duration() > max) {
-                    max = e.duration();
-                }
-                if (e.duration() < min) {
-                    min = e.duration();
-                }
-            }
-        }
-        std::cout << "Min: " << min << std::endl;
-        std::cout << "Max: " << max << std::endl << std::endl;
-        min = 0;
-        max = 0;
+        std::cout << "Mean: " << results_arr[i].first << " | Std Deviation: " << results_arr[i].second << std::endl;
+        n *= 10;
     }
 }
 
 int main() {
-    int n = 1000000;
-
     Experiment *log = new ExperimentLog();
     Experiment *pow = new ExperimentPow();
     Experiment *pow3 = new ExperimentPow3();
@@ -62,20 +46,13 @@ int main() {
     std::string s4 = "ExperimentPow3Mult: ";
     std::string s5 = "ExperimentSum: ";
 
-    std::cout << std::endl << "------Experiments--------" << std::endl;
-    do_experiment(*log, n, s1);
-    do_experiment(*pow, n, s2);
-    do_experiment(*pow3, n, s3);
-    do_experiment(*pow3mult, n, s4);
-    do_experiment(*sum, n, s5);
+    std::cout << std::endl << "------Mean-&-Std--------" << std::endl;
 
-    std::cout << std::endl << "------Min-&-Max--------" << std::endl;
-
-    min_max_experiment(*log, s1);
-    min_max_experiment(*pow, s2);
-    min_max_experiment(*pow3, s3);
-    min_max_experiment(*pow3mult, s4);
-    min_max_experiment(*sum, s5);
+    mean_std_experiment(*log, s1);
+    mean_std_experiment(*pow, s2);
+    mean_std_experiment(*pow3, s3);
+    mean_std_experiment(*pow3mult, s4);
+    mean_std_experiment(*sum, s5);
 
     return 0;
 }

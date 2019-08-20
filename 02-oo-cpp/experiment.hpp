@@ -1,6 +1,8 @@
 #ifndef EXPERIMENT_H
 #define EXPERIMENT_H
 
+#include <utility>
+#include <vector>
 #include <chrono>
 
 class Experiment {
@@ -8,16 +10,15 @@ class Experiment {
     ;
     public:
         Experiment();
-        Experiment(int n);
         ~Experiment();
 
         int n; //size
-        double* arr = new double[n]; //double array
+        std::vector<double> arr;
         double dur; //duration of experiment in seconds
 
-        double* generate_vector(int n);
+        std::vector<double> generate_vector(int n);
         double duration();
-        void run(void);
+        std::pair<double, double> run(void);
         virtual void experiment_code(void);
 
         operator double();

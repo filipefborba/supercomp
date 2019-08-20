@@ -1,17 +1,22 @@
 #include "experiment.hpp"
 #include <iostream>
+#include <random>
+#include <utility>
 #include <cmath>
 #include <chrono>
 
 Experiment::Experiment() : n(10) {}
-Experiment::Experiment(int size) : n(size) {}
 Experiment::~Experiment() {}
 
-double* Experiment::generate_vector(int n) {
-    srand(42);
-    double* arr = new double[n];
+std::vector<double> Experiment::generate_vector(int n) {
+    std::vector<double> arr;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    this->n = n;
+    std::normal_distribution<double> d(5, sqrt(0.5));
     for (int i = 0; i < n; i++) {
-        arr[i] = rand() % 100;
+        arr.push_back(d(gen));
     }
     this->arr = arr;
     return arr;
@@ -21,12 +26,22 @@ double Experiment::duration() {
     return this->dur;
 }
 
-void Experiment::run() {
-    auto start = std::chrono::high_resolution_clock::now();
-    this->experiment_code();
-    auto finish = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = finish - start;
-    this->dur = elapsed.count()*1000;
+std::pair<double, double> Experiment::run() {
+    std::vector<double> times_arr;
+    for (int i = 10; i > 0; i--) {
+        auto start = std::chrono::high_resolution_clock::now();
+        this->experiment_code();
+        auto finish = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = finish - start;
+        this->dur = elapsed.count()*1000;
+        times_arr.push_back(elapsed.count()*1000);
+    }
+
+    // https://stackoverflow.com/questions/7616511/calculate-mean-and-standard-deviation-from-a-vector-of-samples-in-c-using-boost
+    double mean = std::accumulate(times_arr.begin(), times_arr.end(), 0.0)/times_arr.size();
+    double sq_sum = std::inner_product(times_arr.begin(), times_arr.end(), times_arr.begin(), 0.0);
+    double stdev = std::sqrt(sq_sum / times_arr.size() - mean * mean);
+    return std::pair<double, double>(mean, stdev);
 }
 
 void Experiment::experiment_code() {
@@ -37,7 +52,7 @@ Experiment::operator double() {
     return this->duration();
 }
 
-bool Experiment::operator< (Experiment &e) {
+bool Experiment::operator < (Experiment &e) {
     if (this->dur < e.dur && this->n == e.n) {
         return true;
     } else {
