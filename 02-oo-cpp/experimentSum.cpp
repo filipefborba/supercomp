@@ -4,8 +4,9 @@
 #include <chrono>
 
 void ExperimentSum::experiment_code() {
-    double sum;
+    double result = 0;
     for (int i = 0; i < n; i++) {
-        sum += arr[i];
+        result += this->arr[i];
     }
+    this->sum = result;
 }

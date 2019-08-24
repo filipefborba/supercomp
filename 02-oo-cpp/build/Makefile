@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/filipefborba/Insper/supercomp/02-oo-cpp/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -78,16 +67,27 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/usr/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target package
-package/fast: package
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : package/fast
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target package_source
 package_source:
@@ -100,16 +100,16 @@ package_source/fast: package_source
 
 .PHONY : package_source/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	/usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target package
+package/fast: package
 
-.PHONY : edit_cache/fast
+.PHONY : package/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -144,368 +144,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named vector_O3
+# Target rules for targets named ExperimentalBuild
 
 # Build rule for target.
-vector_O3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vector_O3
-.PHONY : vector_O3
+ExperimentalBuild: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalBuild
+.PHONY : ExperimentalBuild
 
 # fast build rule for target.
-vector_O3/fast:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/build
-.PHONY : vector_O3/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousSubmit
-
-# Build rule for target.
-ContinuousSubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousSubmit
-.PHONY : ContinuousSubmit
-
-# fast build rule for target.
-ContinuousSubmit/fast:
-	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
-.PHONY : ContinuousSubmit/fast
-
-#=============================================================================
-# Target rules for targets named vector_operations
-
-# Build rule for target.
-vector_operations: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vector_operations
-.PHONY : vector_operations
-
-# fast build rule for target.
-vector_operations/fast:
-	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/build
-.PHONY : vector_operations/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousMemCheck
-
-# Build rule for target.
-ContinuousMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousMemCheck
-.PHONY : ContinuousMemCheck
-
-# fast build rule for target.
-ContinuousMemCheck/fast:
-	$(MAKE) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
-.PHONY : ContinuousMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousConfigure
-
-# Build rule for target.
-ContinuousConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousConfigure
-.PHONY : ContinuousConfigure
-
-# fast build rule for target.
-ContinuousConfigure/fast:
-	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
-.PHONY : ContinuousConfigure/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalSubmit
-
-# Build rule for target.
-ExperimentalSubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalSubmit
-.PHONY : ExperimentalSubmit
-
-# fast build rule for target.
-ExperimentalSubmit/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
-.PHONY : ExperimentalSubmit/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalMemCheck
-
-# Build rule for target.
-ExperimentalMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalMemCheck
-.PHONY : ExperimentalMemCheck
-
-# fast build rule for target.
-ExperimentalMemCheck/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
-.PHONY : ExperimentalMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalTest
-
-# Build rule for target.
-ExperimentalTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalTest
-.PHONY : ExperimentalTest
-
-# fast build rule for target.
-ExperimentalTest/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
-.PHONY : ExperimentalTest/fast
-
-#=============================================================================
-# Target rules for targets named NightlyUpdate
-
-# Build rule for target.
-NightlyUpdate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyUpdate
-.PHONY : NightlyUpdate
-
-# fast build rule for target.
-NightlyUpdate/fast:
-	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
-.PHONY : NightlyUpdate/fast
-
-#=============================================================================
-# Target rules for targets named NightlyStart
-
-# Build rule for target.
-NightlyStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyStart
-.PHONY : NightlyStart
-
-# fast build rule for target.
-NightlyStart/fast:
-	$(MAKE) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
-.PHONY : NightlyStart/fast
-
-#=============================================================================
-# Target rules for targets named NightlyMemoryCheck
-
-# Build rule for target.
-NightlyMemoryCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemoryCheck
-.PHONY : NightlyMemoryCheck
-
-# fast build rule for target.
-NightlyMemoryCheck/fast:
-	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
-.PHONY : NightlyMemoryCheck/fast
-
-#=============================================================================
-# Target rules for targets named NightlyBuild
-
-# Build rule for target.
-NightlyBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyBuild
-.PHONY : NightlyBuild
-
-# fast build rule for target.
-NightlyBuild/fast:
-	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
-.PHONY : NightlyBuild/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalUpdate
-
-# Build rule for target.
-ExperimentalUpdate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalUpdate
-.PHONY : ExperimentalUpdate
-
-# fast build rule for target.
-ExperimentalUpdate/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
-.PHONY : ExperimentalUpdate/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousBuild
-
-# Build rule for target.
-ContinuousBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousBuild
-.PHONY : ContinuousBuild
-
-# fast build rule for target.
-ContinuousBuild/fast:
-	$(MAKE) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
-.PHONY : ContinuousBuild/fast
-
-#=============================================================================
-# Target rules for targets named Continuous
-
-# Build rule for target.
-Continuous: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Continuous
-.PHONY : Continuous
-
-# fast build rule for target.
-Continuous/fast:
-	$(MAKE) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
-.PHONY : Continuous/fast
-
-#=============================================================================
-# Target rules for targets named Experimental
-
-# Build rule for target.
-Experimental: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Experimental
-.PHONY : Experimental
-
-# fast build rule for target.
-Experimental/fast:
-	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
-.PHONY : Experimental/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalConfigure
-
-# Build rule for target.
-ExperimentalConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalConfigure
-.PHONY : ExperimentalConfigure
-
-# fast build rule for target.
-ExperimentalConfigure/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
-.PHONY : ExperimentalConfigure/fast
-
-#=============================================================================
-# Target rules for targets named NightlyTest
-
-# Build rule for target.
-NightlyTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyTest
-.PHONY : NightlyTest
-
-# fast build rule for target.
-NightlyTest/fast:
-	$(MAKE) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
-.PHONY : NightlyTest/fast
-
-#=============================================================================
-# Target rules for targets named NightlyCoverage
-
-# Build rule for target.
-NightlyCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyCoverage
-.PHONY : NightlyCoverage
-
-# fast build rule for target.
-NightlyCoverage/fast:
-	$(MAKE) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
-.PHONY : NightlyCoverage/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalCoverage
-
-# Build rule for target.
-ExperimentalCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalCoverage
-.PHONY : ExperimentalCoverage
-
-# fast build rule for target.
-ExperimentalCoverage/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
-.PHONY : ExperimentalCoverage/fast
-
-#=============================================================================
-# Target rules for targets named NightlyMemCheck
-
-# Build rule for target.
-NightlyMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemCheck
-.PHONY : NightlyMemCheck
-
-# fast build rule for target.
-NightlyMemCheck/fast:
-	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
-.PHONY : NightlyMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousStart
-
-# Build rule for target.
-ContinuousStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousStart
-.PHONY : ContinuousStart
-
-# fast build rule for target.
-ContinuousStart/fast:
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
-.PHONY : ContinuousStart/fast
-
-#=============================================================================
-# Target rules for targets named NightlySubmit
-
-# Build rule for target.
-NightlySubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlySubmit
-.PHONY : NightlySubmit
-
-# fast build rule for target.
-NightlySubmit/fast:
-	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
-.PHONY : NightlySubmit/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousCoverage
-
-# Build rule for target.
-ContinuousCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousCoverage
-.PHONY : ContinuousCoverage
-
-# fast build rule for target.
-ContinuousCoverage/fast:
-	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
-.PHONY : ContinuousCoverage/fast
-
-#=============================================================================
-# Target rules for targets named Nightly
-
-# Build rule for target.
-Nightly: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Nightly
-.PHONY : Nightly
-
-# fast build rule for target.
-Nightly/fast:
-	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
-.PHONY : Nightly/fast
-
-#=============================================================================
-# Target rules for targets named NightlyConfigure
-
-# Build rule for target.
-NightlyConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyConfigure
-.PHONY : NightlyConfigure
-
-# fast build rule for target.
-NightlyConfigure/fast:
-	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
-.PHONY : NightlyConfigure/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalStart
-
-# Build rule for target.
-ExperimentalStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalStart
-.PHONY : ExperimentalStart
-
-# fast build rule for target.
-ExperimentalStart/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
-.PHONY : ExperimentalStart/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousTest
-
-# Build rule for target.
-ContinuousTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousTest
-.PHONY : ContinuousTest
-
-# fast build rule for target.
-ContinuousTest/fast:
-	$(MAKE) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
-.PHONY : ContinuousTest/fast
+ExperimentalBuild/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
+.PHONY : ExperimentalBuild/fast
 
 #=============================================================================
 # Target rules for targets named ContinuousUpdate
@@ -521,17 +170,420 @@ ContinuousUpdate/fast:
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
-# Target rules for targets named ExperimentalBuild
+# Target rules for targets named ExperimentalStart
 
 # Build rule for target.
-ExperimentalBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalBuild
-.PHONY : ExperimentalBuild
+ExperimentalStart: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalStart
+.PHONY : ExperimentalStart
 
 # fast build rule for target.
-ExperimentalBuild/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
-.PHONY : ExperimentalBuild/fast
+ExperimentalStart/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
+.PHONY : ExperimentalStart/fast
+
+#=============================================================================
+# Target rules for targets named Nightly
+
+# Build rule for target.
+Nightly: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Nightly
+.PHONY : Nightly
+
+# fast build rule for target.
+Nightly/fast:
+	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
+.PHONY : Nightly/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousCoverage
+
+# Build rule for target.
+ContinuousCoverage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousCoverage
+.PHONY : ContinuousCoverage
+
+# fast build rule for target.
+ContinuousCoverage/fast:
+	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
+.PHONY : ContinuousCoverage/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousStart
+
+# Build rule for target.
+ContinuousStart: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousStart
+.PHONY : ContinuousStart
+
+# fast build rule for target.
+ContinuousStart/fast:
+	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
+.PHONY : ContinuousStart/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalCoverage
+
+# Build rule for target.
+ExperimentalCoverage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalCoverage
+.PHONY : ExperimentalCoverage
+
+# fast build rule for target.
+ExperimentalCoverage/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
+.PHONY : ExperimentalCoverage/fast
+
+#=============================================================================
+# Target rules for targets named NightlyConfigure
+
+# Build rule for target.
+NightlyConfigure: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyConfigure
+.PHONY : NightlyConfigure
+
+# fast build rule for target.
+NightlyConfigure/fast:
+	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
+.PHONY : NightlyConfigure/fast
+
+#=============================================================================
+# Target rules for targets named NightlyCoverage
+
+# Build rule for target.
+NightlyCoverage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyCoverage
+.PHONY : NightlyCoverage
+
+# fast build rule for target.
+NightlyCoverage/fast:
+	$(MAKE) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
+.PHONY : NightlyCoverage/fast
+
+#=============================================================================
+# Target rules for targets named NightlyTest
+
+# Build rule for target.
+NightlyTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyTest
+.PHONY : NightlyTest
+
+# fast build rule for target.
+NightlyTest/fast:
+	$(MAKE) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
+.PHONY : NightlyTest/fast
+
+#=============================================================================
+# Target rules for targets named vector_O3_SIMD
+
+# Build rule for target.
+vector_O3_SIMD: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_O3_SIMD
+.PHONY : vector_O3_SIMD
+
+# fast build rule for target.
+vector_O3_SIMD/fast:
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/build
+.PHONY : vector_O3_SIMD/fast
+
+#=============================================================================
+# Target rules for targets named Experimental
+
+# Build rule for target.
+Experimental: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Experimental
+.PHONY : Experimental
+
+# fast build rule for target.
+Experimental/fast:
+	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
+.PHONY : Experimental/fast
+
+#=============================================================================
+# Target rules for targets named Continuous
+
+# Build rule for target.
+Continuous: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Continuous
+.PHONY : Continuous
+
+# fast build rule for target.
+Continuous/fast:
+	$(MAKE) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
+.PHONY : Continuous/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousBuild
+
+# Build rule for target.
+ContinuousBuild: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousBuild
+.PHONY : ContinuousBuild
+
+# fast build rule for target.
+ContinuousBuild/fast:
+	$(MAKE) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
+.PHONY : ContinuousBuild/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalUpdate
+
+# Build rule for target.
+ExperimentalUpdate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalUpdate
+.PHONY : ExperimentalUpdate
+
+# fast build rule for target.
+ExperimentalUpdate/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
+.PHONY : ExperimentalUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousTest
+
+# Build rule for target.
+ContinuousTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousTest
+.PHONY : ContinuousTest
+
+# fast build rule for target.
+ContinuousTest/fast:
+	$(MAKE) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
+.PHONY : ContinuousTest/fast
+
+#=============================================================================
+# Target rules for targets named NightlySubmit
+
+# Build rule for target.
+NightlySubmit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlySubmit
+.PHONY : NightlySubmit
+
+# fast build rule for target.
+NightlySubmit/fast:
+	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
+.PHONY : NightlySubmit/fast
+
+#=============================================================================
+# Target rules for targets named NightlyBuild
+
+# Build rule for target.
+NightlyBuild: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyBuild
+.PHONY : NightlyBuild
+
+# fast build rule for target.
+NightlyBuild/fast:
+	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
+.PHONY : NightlyBuild/fast
+
+#=============================================================================
+# Target rules for targets named vector_O1
+
+# Build rule for target.
+vector_O1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_O1
+.PHONY : vector_O1
+
+# fast build rule for target.
+vector_O1/fast:
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/build
+.PHONY : vector_O1/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemoryCheck
+
+# Build rule for target.
+NightlyMemoryCheck: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemoryCheck
+.PHONY : NightlyMemoryCheck
+
+# fast build rule for target.
+NightlyMemoryCheck/fast:
+	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
+.PHONY : NightlyMemoryCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlyStart
+
+# Build rule for target.
+NightlyStart: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyStart
+.PHONY : NightlyStart
+
+# fast build rule for target.
+NightlyStart/fast:
+	$(MAKE) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
+.PHONY : NightlyStart/fast
+
+#=============================================================================
+# Target rules for targets named NightlyUpdate
+
+# Build rule for target.
+NightlyUpdate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyUpdate
+.PHONY : NightlyUpdate
+
+# fast build rule for target.
+NightlyUpdate/fast:
+	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
+.PHONY : NightlyUpdate/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalTest
+
+# Build rule for target.
+ExperimentalTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalTest
+.PHONY : ExperimentalTest
+
+# fast build rule for target.
+ExperimentalTest/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
+.PHONY : ExperimentalTest/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalMemCheck
+
+# Build rule for target.
+ExperimentalMemCheck: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalMemCheck
+.PHONY : ExperimentalMemCheck
+
+# fast build rule for target.
+ExperimentalMemCheck/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
+.PHONY : ExperimentalMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named NightlyMemCheck
+
+# Build rule for target.
+NightlyMemCheck: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemCheck
+.PHONY : NightlyMemCheck
+
+# fast build rule for target.
+NightlyMemCheck/fast:
+	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
+.PHONY : NightlyMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalSubmit
+
+# Build rule for target.
+ExperimentalSubmit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalSubmit
+.PHONY : ExperimentalSubmit
+
+# fast build rule for target.
+ExperimentalSubmit/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
+.PHONY : ExperimentalSubmit/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousConfigure
+
+# Build rule for target.
+ContinuousConfigure: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousConfigure
+.PHONY : ContinuousConfigure
+
+# fast build rule for target.
+ContinuousConfigure/fast:
+	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
+.PHONY : ContinuousConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousMemCheck
+
+# Build rule for target.
+ContinuousMemCheck: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousMemCheck
+.PHONY : ContinuousMemCheck
+
+# fast build rule for target.
+ContinuousMemCheck/fast:
+	$(MAKE) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
+.PHONY : ContinuousMemCheck/fast
+
+#=============================================================================
+# Target rules for targets named vector_operations
+
+# Build rule for target.
+vector_operations: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_operations
+.PHONY : vector_operations
+
+# fast build rule for target.
+vector_operations/fast:
+	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/build
+.PHONY : vector_operations/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalConfigure
+
+# Build rule for target.
+ExperimentalConfigure: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalConfigure
+.PHONY : ExperimentalConfigure
+
+# fast build rule for target.
+ExperimentalConfigure/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
+.PHONY : ExperimentalConfigure/fast
+
+#=============================================================================
+# Target rules for targets named ContinuousSubmit
+
+# Build rule for target.
+ContinuousSubmit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousSubmit
+.PHONY : ContinuousSubmit
+
+# fast build rule for target.
+ContinuousSubmit/fast:
+	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
+.PHONY : ContinuousSubmit/fast
+
+#=============================================================================
+# Target rules for targets named vector_O0
+
+# Build rule for target.
+vector_O0: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_O0
+.PHONY : vector_O0
+
+# fast build rule for target.
+vector_O0/fast:
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/build
+.PHONY : vector_O0/fast
+
+#=============================================================================
+# Target rules for targets named vector_O2
+
+# Build rule for target.
+vector_O2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_O2
+.PHONY : vector_O2
+
+# fast build rule for target.
+vector_O2/fast:
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/build
+.PHONY : vector_O2/fast
+
+#=============================================================================
+# Target rules for targets named vector_O3
+
+# Build rule for target.
+vector_O3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vector_O3
+.PHONY : vector_O3
+
+# fast build rule for target.
+vector_O3/fast:
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/build
+.PHONY : vector_O3/fast
 
 experiment.o: experiment.cpp.o
 
@@ -539,8 +591,12 @@ experiment.o: experiment.cpp.o
 
 # target to build an object file
 experiment.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experiment.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experiment.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experiment.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experiment.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experiment.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.o
 .PHONY : experiment.cpp.o
 
 experiment.i: experiment.cpp.i
@@ -549,8 +605,12 @@ experiment.i: experiment.cpp.i
 
 # target to preprocess a source file
 experiment.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experiment.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experiment.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experiment.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experiment.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experiment.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.i
 .PHONY : experiment.cpp.i
 
 experiment.s: experiment.cpp.s
@@ -559,8 +619,12 @@ experiment.s: experiment.cpp.s
 
 # target to generate assembly for a file
 experiment.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experiment.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experiment.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experiment.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experiment.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experiment.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experiment.cpp.s
 .PHONY : experiment.cpp.s
 
 experimentLog.o: experimentLog.cpp.o
@@ -569,8 +633,12 @@ experimentLog.o: experimentLog.cpp.o
 
 # target to build an object file
 experimentLog.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentLog.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentLog.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentLog.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentLog.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentLog.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.o
 .PHONY : experimentLog.cpp.o
 
 experimentLog.i: experimentLog.cpp.i
@@ -579,8 +647,12 @@ experimentLog.i: experimentLog.cpp.i
 
 # target to preprocess a source file
 experimentLog.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentLog.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentLog.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentLog.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentLog.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentLog.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.i
 .PHONY : experimentLog.cpp.i
 
 experimentLog.s: experimentLog.cpp.s
@@ -589,8 +661,12 @@ experimentLog.s: experimentLog.cpp.s
 
 # target to generate assembly for a file
 experimentLog.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentLog.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentLog.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentLog.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentLog.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentLog.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentLog.cpp.s
 .PHONY : experimentLog.cpp.s
 
 experimentPow.o: experimentPow.cpp.o
@@ -599,8 +675,12 @@ experimentPow.o: experimentPow.cpp.o
 
 # target to build an object file
 experimentPow.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.o
 .PHONY : experimentPow.cpp.o
 
 experimentPow.i: experimentPow.cpp.i
@@ -609,8 +689,12 @@ experimentPow.i: experimentPow.cpp.i
 
 # target to preprocess a source file
 experimentPow.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.i
 .PHONY : experimentPow.cpp.i
 
 experimentPow.s: experimentPow.cpp.s
@@ -619,8 +703,12 @@ experimentPow.s: experimentPow.cpp.s
 
 # target to generate assembly for a file
 experimentPow.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow.cpp.s
 .PHONY : experimentPow.cpp.s
 
 experimentPow3.o: experimentPow3.cpp.o
@@ -629,8 +717,12 @@ experimentPow3.o: experimentPow3.cpp.o
 
 # target to build an object file
 experimentPow3.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.o
 .PHONY : experimentPow3.cpp.o
 
 experimentPow3.i: experimentPow3.cpp.i
@@ -639,8 +731,12 @@ experimentPow3.i: experimentPow3.cpp.i
 
 # target to preprocess a source file
 experimentPow3.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.i
 .PHONY : experimentPow3.cpp.i
 
 experimentPow3.s: experimentPow3.cpp.s
@@ -649,8 +745,12 @@ experimentPow3.s: experimentPow3.cpp.s
 
 # target to generate assembly for a file
 experimentPow3.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3.cpp.s
 .PHONY : experimentPow3.cpp.s
 
 experimentPow3Mult.o: experimentPow3Mult.cpp.o
@@ -659,8 +759,12 @@ experimentPow3Mult.o: experimentPow3Mult.cpp.o
 
 # target to build an object file
 experimentPow3Mult.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3Mult.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3Mult.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3Mult.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3Mult.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.o
 .PHONY : experimentPow3Mult.cpp.o
 
 experimentPow3Mult.i: experimentPow3Mult.cpp.i
@@ -669,8 +773,12 @@ experimentPow3Mult.i: experimentPow3Mult.cpp.i
 
 # target to preprocess a source file
 experimentPow3Mult.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3Mult.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3Mult.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3Mult.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3Mult.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.i
 .PHONY : experimentPow3Mult.cpp.i
 
 experimentPow3Mult.s: experimentPow3Mult.cpp.s
@@ -679,8 +787,12 @@ experimentPow3Mult.s: experimentPow3Mult.cpp.s
 
 # target to generate assembly for a file
 experimentPow3Mult.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentPow3Mult.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentPow3Mult.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentPow3Mult.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentPow3Mult.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentPow3Mult.cpp.s
 .PHONY : experimentPow3Mult.cpp.s
 
 experimentSum.o: experimentSum.cpp.o
@@ -689,8 +801,12 @@ experimentSum.o: experimentSum.cpp.o
 
 # target to build an object file
 experimentSum.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSum.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSum.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSum.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSum.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSum.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.o
 .PHONY : experimentSum.cpp.o
 
 experimentSum.i: experimentSum.cpp.i
@@ -699,8 +815,12 @@ experimentSum.i: experimentSum.cpp.i
 
 # target to preprocess a source file
 experimentSum.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSum.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSum.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSum.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSum.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSum.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.i
 .PHONY : experimentSum.cpp.i
 
 experimentSum.s: experimentSum.cpp.s
@@ -709,9 +829,55 @@ experimentSum.s: experimentSum.cpp.s
 
 # target to generate assembly for a file
 experimentSum.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSum.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSum.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSum.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSum.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSum.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSum.cpp.s
 .PHONY : experimentSum.cpp.s
+
+experimentSumPositives.o: experimentSumPositives.cpp.o
+
+.PHONY : experimentSumPositives.o
+
+# target to build an object file
+experimentSumPositives.cpp.o:
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSumPositives.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSumPositives.cpp.o
+	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSumPositives.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSumPositives.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSumPositives.cpp.o
+.PHONY : experimentSumPositives.cpp.o
+
+experimentSumPositives.i: experimentSumPositives.cpp.i
+
+.PHONY : experimentSumPositives.i
+
+# target to preprocess a source file
+experimentSumPositives.cpp.i:
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSumPositives.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSumPositives.cpp.i
+	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSumPositives.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSumPositives.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSumPositives.cpp.i
+.PHONY : experimentSumPositives.cpp.i
+
+experimentSumPositives.s: experimentSumPositives.cpp.s
+
+.PHONY : experimentSumPositives.s
+
+# target to generate assembly for a file
+experimentSumPositives.cpp.s:
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/experimentSumPositives.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/experimentSumPositives.cpp.s
+	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/experimentSumPositives.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/experimentSumPositives.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/experimentSumPositives.cpp.s
+.PHONY : experimentSumPositives.cpp.s
 
 main.o: main.cpp.o
 
@@ -719,8 +885,12 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/main.cpp.o
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -729,8 +899,12 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/main.cpp.i
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -739,8 +913,12 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3_SIMD.dir/build.make CMakeFiles/vector_O3_SIMD.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O1.dir/build.make CMakeFiles/vector_O1.dir/main.cpp.s
 	$(MAKE) -f CMakeFiles/vector_operations.dir/build.make CMakeFiles/vector_operations.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O0.dir/build.make CMakeFiles/vector_O0.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O2.dir/build.make CMakeFiles/vector_O2.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/vector_O3.dir/build.make CMakeFiles/vector_O3.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -749,41 +927,45 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... package"
-	@echo "... vector_O3"
-	@echo "... ContinuousSubmit"
-	@echo "... vector_operations"
-	@echo "... ContinuousMemCheck"
-	@echo "... ContinuousConfigure"
-	@echo "... ExperimentalSubmit"
-	@echo "... ExperimentalMemCheck"
-	@echo "... ExperimentalTest"
-	@echo "... NightlyUpdate"
-	@echo "... NightlyStart"
-	@echo "... NightlyMemoryCheck"
-	@echo "... NightlyBuild"
-	@echo "... ExperimentalUpdate"
-	@echo "... ContinuousBuild"
-	@echo "... Continuous"
-	@echo "... Experimental"
-	@echo "... package_source"
-	@echo "... ExperimentalConfigure"
-	@echo "... edit_cache"
-	@echo "... NightlyTest"
-	@echo "... NightlyCoverage"
-	@echo "... ExperimentalCoverage"
-	@echo "... NightlyMemCheck"
-	@echo "... ContinuousStart"
-	@echo "... NightlySubmit"
-	@echo "... ContinuousCoverage"
-	@echo "... Nightly"
-	@echo "... NightlyConfigure"
-	@echo "... ExperimentalStart"
-	@echo "... ContinuousTest"
-	@echo "... ContinuousUpdate"
 	@echo "... ExperimentalBuild"
+	@echo "... ContinuousUpdate"
+	@echo "... ExperimentalStart"
+	@echo "... Nightly"
+	@echo "... ContinuousCoverage"
+	@echo "... ContinuousStart"
+	@echo "... ExperimentalCoverage"
+	@echo "... NightlyConfigure"
+	@echo "... NightlyCoverage"
+	@echo "... rebuild_cache"
+	@echo "... NightlyTest"
+	@echo "... vector_O3_SIMD"
+	@echo "... edit_cache"
+	@echo "... package_source"
+	@echo "... Experimental"
+	@echo "... Continuous"
+	@echo "... ContinuousBuild"
+	@echo "... ExperimentalUpdate"
+	@echo "... ContinuousTest"
+	@echo "... NightlySubmit"
+	@echo "... NightlyBuild"
+	@echo "... vector_O1"
+	@echo "... NightlyMemoryCheck"
+	@echo "... NightlyStart"
+	@echo "... NightlyUpdate"
+	@echo "... ExperimentalTest"
+	@echo "... ExperimentalMemCheck"
+	@echo "... NightlyMemCheck"
+	@echo "... ExperimentalSubmit"
+	@echo "... ContinuousConfigure"
+	@echo "... ContinuousMemCheck"
+	@echo "... vector_operations"
+	@echo "... ExperimentalConfigure"
+	@echo "... ContinuousSubmit"
+	@echo "... vector_O0"
+	@echo "... vector_O2"
+	@echo "... vector_O3"
+	@echo "... package"
 	@echo "... experiment.o"
 	@echo "... experiment.i"
 	@echo "... experiment.s"
@@ -802,6 +984,9 @@ help:
 	@echo "... experimentSum.o"
 	@echo "... experimentSum.i"
 	@echo "... experimentSum.s"
+	@echo "... experimentSumPositives.o"
+	@echo "... experimentSumPositives.i"
+	@echo "... experimentSumPositives.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

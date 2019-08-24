@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp" "/home/filipefborba/Insper/supercomp/02-oo-cpp/build/CMakeFiles/vector_operations.dir/experimentPow3.cpp.o"
   "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp" "/home/filipefborba/Insper/supercomp/02-oo-cpp/build/CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.o"
   "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp" "/home/filipefborba/Insper/supercomp/02-oo-cpp/build/CMakeFiles/vector_operations.dir/experimentSum.cpp.o"
+  "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp" "/home/filipefborba/Insper/supercomp/02-oo-cpp/build/CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o"
   "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp" "/home/filipefborba/Insper/supercomp/02-oo-cpp/build/CMakeFiles/vector_operations.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

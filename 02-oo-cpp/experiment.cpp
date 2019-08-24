@@ -10,8 +10,7 @@ Experiment::~Experiment() {}
 
 std::vector<double> Experiment::generate_vector(int n) {
     std::vector<double> arr;
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    std::default_random_engine gen(2);
 
     this->n = n;
     std::normal_distribution<double> d(5, sqrt(0.5));

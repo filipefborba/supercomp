@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/vector_operations.dir/experimentPow3.cpp.o"
   "CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.o"
   "CMakeFiles/vector_operations.dir/experimentSum.cpp.o"
+  "CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o"
   "CMakeFiles/vector_operations.dir/main.cpp.o"
   "vector_operations.pdb"
   "vector_operations"

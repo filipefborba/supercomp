@@ -15,6 +15,7 @@ class Experiment {
         int n; //size
         std::vector<double> arr;
         double dur; //duration of experiment in seconds
+        double sum;
 
         std::vector<double> generate_vector(int n);
         double duration();

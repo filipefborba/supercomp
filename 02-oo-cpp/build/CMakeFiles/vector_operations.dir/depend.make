@@ -24,11 +24,16 @@ CMakeFiles/vector_operations.dir/experimentSum.cpp.o: ../experiment.hpp
 CMakeFiles/vector_operations.dir/experimentSum.cpp.o: ../experimentSum.cpp
 CMakeFiles/vector_operations.dir/experimentSum.cpp.o: ../experimentSum.hpp
 
+CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o: ../experiment.hpp
+CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o: ../experimentSumPositives.cpp
+CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o: ../experimentSumPositives.hpp
+
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experiment.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentLog.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentPow.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentPow3.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentPow3Mult.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentSum.hpp
+CMakeFiles/vector_operations.dir/main.cpp.o: ../experimentSumPositives.hpp
 CMakeFiles/vector_operations.dir/main.cpp.o: ../main.cpp
 

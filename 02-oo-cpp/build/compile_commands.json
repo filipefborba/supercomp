@@ -1,6 +1,206 @@
 [
 {
   "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -mavx -ffast-math -ftree-vectorize -o CMakeFiles/vector_O3_SIMD.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O1 -o CMakeFiles/vector_O1.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/vector_operations.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_O0.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O2 -o CMakeFiles/vector_O2.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
   "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -o CMakeFiles/vector_O3.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
   "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
 },
@@ -31,42 +231,12 @@
 },
 {
   "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -o CMakeFiles/vector_O3.dir/experimentSumPositives.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSumPositives.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
   "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O3 -o CMakeFiles/vector_O3.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experiment.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experiment.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experimentLog.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentLog.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experimentPow.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experimentPow3.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experimentPow3Mult.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentPow3Mult.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/experimentSum.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp",
-  "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/experimentSum.cpp"
-},
-{
-  "directory": "/home/filipefborba/Insper/supercomp/02-oo-cpp/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -O0 -o CMakeFiles/vector_operations.dir/main.cpp.o -c /home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp",
   "file": "/home/filipefborba/Insper/supercomp/02-oo-cpp/main.cpp"
 }
 ]
