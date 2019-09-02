@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/simulator_O0.dir/rectangle.cpp.o CMakeFiles/simulator_O0.dir/simulator.cpp.o CMakeFiles/simulator_O0.dir/main.cpp.o  -o simulator_O0 
