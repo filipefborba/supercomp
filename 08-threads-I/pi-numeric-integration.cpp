@@ -16,7 +16,7 @@ int main() {
 
     pi = step * sum;
     auto end_time = std::chrono::high_resolution_clock::now();
-    auto runtime = std::chrono::duration_cast<std::chrono::seconds> (end_time - start_time);
+    auto runtime = std::chrono::duration_cast<std::chrono::milliseconds> (end_time - start_time);
     
     std::cout << "O valor de pi calculado com " << num_steps << " passos levou ";
     std::cout << runtime.count() << " segundo(s) e chegou no valor : ";
