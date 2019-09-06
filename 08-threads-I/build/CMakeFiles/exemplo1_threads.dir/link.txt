@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/exemplo1_threads.dir/exemplo1-threads.cpp.o  -o exemplo1_threads -pthread 

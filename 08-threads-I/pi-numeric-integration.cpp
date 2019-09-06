@@ -19,7 +19,7 @@ int main() {
     auto runtime = std::chrono::duration_cast<std::chrono::milliseconds> (end_time - start_time);
     
     std::cout << "O valor de pi calculado com " << num_steps << " passos levou ";
-    std::cout << runtime.count() << " segundo(s) e chegou no valor : ";
+    std::cout << runtime.count() << " milisegundo(s) e chegou no valor : ";
     std::cout.precision(17);
     std::cout << pi << std::endl;
 }

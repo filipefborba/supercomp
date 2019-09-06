@@ -3,10 +3,10 @@
 #include <iostream>
 #include <chrono>
 
-void calc_pi(double num_steps, double step, double *index) {
+void calc_pi(double i, double num_steps, double step, double *index) {
     double x, sum = 0.0;
 
-    for (double i = 0; i < num_steps; i++) {
+    for (i; i < num_steps; i++) {
         x = (i + 0.5) * step;
         sum = sum + 4.0 / (1.0 + x * x);
     }
@@ -30,7 +30,7 @@ int main() {
 
     // Criacao dinamica das threads
     for (int i = 0; i < num_threads; i++) {
-        thread_vector[i] = std::thread(calc_pi, parallel_num_steps, step, &thread_results[i]);
+        thread_vector[i] = std::thread(calc_pi, parallel_num_steps * i, parallel_num_steps * (i+1), step, &thread_results[i]);
     }
 
     // Espera até que todas as threads acabem de executar.
