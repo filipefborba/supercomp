@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/exemplo1.dir/exemplo1.cpp.o  -o exemplo1 -lgomp -lpthread 

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/calcula_pi.dir/calcula_pi.cpp.o  -o calcula_pi 
