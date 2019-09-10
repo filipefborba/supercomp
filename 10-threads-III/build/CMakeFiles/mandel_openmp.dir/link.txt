@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/mandel_openmp.dir/mandel.cpp.o  -o mandel_openmp -lgomp -lpthread 

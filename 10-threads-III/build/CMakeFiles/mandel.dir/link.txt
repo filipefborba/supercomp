@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/mandel.dir/mandel.cpp.o  -o mandel 
