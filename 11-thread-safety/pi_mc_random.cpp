@@ -81,9 +81,10 @@ History:
    Written by Tim Mattson, 9/2007.
 
 */
-#include <stdio.h>
 #include <omp.h>
-#include "random.h"
+#include <iostream>
+#include <random>
+#include <vector>
 
 //
 // The monte carlo pi program
@@ -98,26 +99,35 @@ int main()
    double pi, x, y, test;
    double r = 1.0; // radius of circle. Side of squrare is 2*r
 
-   seed(-r, r); // The circle and square are centered at the origin
+   std::default_random_engine generator;
+   std::uniform_real_distribution<double> distribution(-r,r);
+
+   // seed(-r, r); // The circle and square are centered at the origin
+   
+   std::vector<double> x_vec(num_trials);
+   std::vector<double> y_vec(num_trials);
+   
    double time = omp_get_wtime();
 
-   #pragma omp parallel for private(x, y, test) reduction(+:Ncirc)
-   for (i = 0; i < num_trials; i++)
-   {
-      x = drandom();
-      y = drandom();
-
-      test = x * x + y * y;
-
-      if (test <= r * r) {
-         Ncirc++;
-      }
+   for (long j = 0; j < num_trials; j++) {
+      x_vec[j] = distribution(generator);
+      y_vec[j] = distribution(generator);
    }
+
+   #pragma omp parallel for private(test) reduction(+:Ncirc)
+      for (i = 0; i < num_trials; i++)
+      {
+         test = x_vec[i] * x_vec[i] + y_vec[i] * y_vec[i];
+
+         if (test <= r * r) {
+            Ncirc++;
+         }
+      }
 
    pi = 4.0 * ((double)Ncirc / (double)num_trials);
 
-   printf("\n %ld trials, pi is %lf ", num_trials, pi);
-   printf(" in %lf seconds\n", omp_get_wtime() - time);
+   std::cout << num_trials << " trials, pi is " << pi << std::endl;
+   std::cout << " in " << omp_get_wtime() - time << " seconds" << std::endl;
 
    return 0;
 }

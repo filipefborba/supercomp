@@ -1,0 +1,1 @@
+/usr/bin/gcc-7 -g  -rdynamic CMakeFiles/pi_mc.dir/pi_mc.c.o CMakeFiles/pi_mc.dir/random.c.o  -o pi_mc -lgomp -lpthread 

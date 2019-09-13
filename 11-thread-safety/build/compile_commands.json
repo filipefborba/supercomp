@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/g++-7    -g   -fopenmp -o CMakeFiles/pi_mc_par3.dir/pi_mc_par3.cpp.o -c /home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par3.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par3.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/g++-7    -g   -fopenmp -o CMakeFiles/pi_mc_par1.dir/pi_mc_par1.cpp.o -c /home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par1.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par1.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/g++-7    -g   -fopenmp -o CMakeFiles/pi_mc_random.dir/pi_mc_random.cpp.o -c /home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_random.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_random.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/g++-7    -g   -fopenmp -o CMakeFiles/pi_mc_par2.dir/pi_mc_par2.cpp.o -c /home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par2.cpp",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc_par2.cpp"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/gcc-7   -g   -fopenmp -o CMakeFiles/pi_mc.dir/pi_mc.c.o   -c /home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc.c",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc.c"
+},
+{
+  "directory": "/home/filipefborba/Insper/supercomp/11-thread-safety/build",
+  "command": "/usr/bin/gcc-7   -g   -fopenmp -o CMakeFiles/pi_mc.dir/random.c.o   -c /home/filipefborba/Insper/supercomp/11-thread-safety/random.c",
+  "file": "/home/filipefborba/Insper/supercomp/11-thread-safety/random.c"
+}
+]

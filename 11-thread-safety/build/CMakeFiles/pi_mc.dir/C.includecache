@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipefborba/Insper/supercomp/11-thread-safety/pi_mc.c
+stdio.h
+-
+omp.h
+-
+random.h
+/home/filipefborba/Insper/supercomp/11-thread-safety/random.h
+
+/home/filipefborba/Insper/supercomp/11-thread-safety/random.c
+
+/home/filipefborba/Insper/supercomp/11-thread-safety/random.h
+

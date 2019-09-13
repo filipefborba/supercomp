@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -g  -rdynamic CMakeFiles/pi_mc_par3.dir/pi_mc_par3.cpp.o  -o pi_mc_par3 -lgomp -lpthread 
