@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipefborba/Insper/supercomp/12-tarefas/pi_recursivo.cpp
+omp.h
+-
+iostream
+-
+iomanip
+-
+

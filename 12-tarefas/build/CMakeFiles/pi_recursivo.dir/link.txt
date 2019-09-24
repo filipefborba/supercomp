@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/pi_recursivo.dir/pi_recursivo.cpp.o  -o pi_recursivo -lgomp -lpthread 

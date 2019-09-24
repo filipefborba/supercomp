@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/race_cars.dir/race_cars.cpp.o  -o race_cars -lgomp -lpthread 

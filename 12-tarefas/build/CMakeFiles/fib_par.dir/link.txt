@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/fib_par.dir/fib_par.cpp.o  -o fib_par -lgomp -lpthread 
