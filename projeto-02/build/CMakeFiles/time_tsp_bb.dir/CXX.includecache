@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipefborba/Insper/supercomp/projeto-02/tsp_bb.cpp
+iostream
+-
+iomanip
+-
+cmath
+-
+omp.h
+-
+chrono
+-
+vector
+-
+utility
+-
+algorithm
+-
+

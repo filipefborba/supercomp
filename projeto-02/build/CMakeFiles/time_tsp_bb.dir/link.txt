@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/time_tsp_bb.dir/tsp_bb.cpp.o  -o time_tsp_bb -lgomp -lpthread 

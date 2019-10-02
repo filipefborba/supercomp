@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/tsp.dir/tsp.cpp.o  -o tsp -lgomp -lpthread 

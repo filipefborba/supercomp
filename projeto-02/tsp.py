@@ -18,7 +18,6 @@ def backtrack(points, idx, curr_cost, curr_sol,
         if curr_cost < best_cost:
             best_seq[:] = curr_sol.copy()
             best_cost = curr_cost
-            print('best:', best_cost, file=sys.stderr)
         return best_cost
 
     for i in range(len(points)):
@@ -50,6 +49,6 @@ if __name__ == "__main__":
 
     backtrack(points, 1, 0, curr_sol, math.inf, best_sol)
 
-    print(path_dist(best_sol, points), '1')
+    print(f'{path_dist(best_sol, points):.5f}', '1')
     print(' '.join([str(i) for i in best_sol]))
 

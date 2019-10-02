@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/tsp_seq.dir/tsp_seq.cpp.o  -o tsp_seq 
