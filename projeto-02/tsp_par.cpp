@@ -19,14 +19,17 @@ double path_dist(std::vector<int> &seq, std::vector<std::pair<double,double>> &p
     return d;
 }
 
-double backtrack_seq(std::vector<std::pair<double,double>> points, int idx, double curr_cost, std::vector<int> &curr_sol, double &best_cost, std::vector<int> &best_seq, std::vector<bool> &used) {
+double backtrack_seq(std::vector<std::pair<double,double>> &points, int idx, double curr_cost,
+std::vector<int> &curr_sol, double &best_cost, std::vector<int> &best_seq, std::vector<bool> &used) {
     if (idx == points.size()) {
         curr_cost += dist(points[curr_sol[0]], points[curr_sol.back()]);
-        #pragma omp critical 
-        {
-            if (curr_cost < best_cost) {
-                best_seq = curr_sol;
-                best_cost = curr_cost;
+        if (curr_cost < best_cost) {
+            #pragma omp critical 
+            {
+                if (curr_cost < best_cost) {
+                    best_seq = curr_sol;
+                    best_cost = curr_cost;
+                }
             }
         }
         return best_cost;
@@ -38,7 +41,7 @@ double backtrack_seq(std::vector<std::pair<double,double>> points, int idx, doub
             curr_sol[idx] = i;
 
             double new_cost = curr_cost + dist(points[curr_sol[idx-1]], points[curr_sol[idx]]); 
-            best_cost = backtrack_seq(points, idx+1, new_cost, curr_sol, best_cost, best_seq, used);
+            backtrack_seq(points, idx+1, new_cost, curr_sol, best_cost, best_seq, used);
 
             used[i] = false;
             curr_sol[idx] = -1;
@@ -47,18 +50,16 @@ double backtrack_seq(std::vector<std::pair<double,double>> points, int idx, doub
     return best_cost;
 }
 
-double backtrack_par(std::vector<std::pair<double,double>> &points, int idx, double curr_cost, 
-std::vector<int> &curr_sol, double best_cost, std::vector<int> &best_seq, std::vector<bool> used) {
-    
-    std::vector<double> costs;
+double backtrack_par(std::vector<std::pair<double,double>> points, int idx, double curr_cost, 
+std::vector<int> &curr_sol, double &best_cost, std::vector<int> &best_seq, std::vector<bool> &used) {
     for (int i = 1; i < points.size(); i++) {
-        #pragma omp task shared(best_seq, best_cost, costs) 
+        #pragma omp task shared(best_seq, best_cost) 
         {
             used[i] = true;
             curr_sol[1] = i;
             double new_cost = dist(points[curr_sol[0]], points[curr_sol[1]]);
             
-            costs.push_back(backtrack_seq(points, 2, new_cost, curr_sol, best_cost, best_seq, used));
+            backtrack_seq(points, 2, new_cost, curr_sol, best_cost, best_seq, used);
 
             used[i] = false;
             curr_sol[1] = -1;
@@ -66,8 +67,7 @@ std::vector<int> &curr_sol, double best_cost, std::vector<int> &best_seq, std::v
     }
     #pragma omp taskwait
 
-    double best = *std::min_element(costs.begin(), costs.end());
-    return best;
+    return best_cost;
 }
 
 int main() {
@@ -93,13 +93,14 @@ int main() {
 
     curr_sol[0] = 0;
     used[0] = true;
+    double best_cost = std::numeric_limits<double>::infinity();
 
     auto start_time = std::chrono::high_resolution_clock::now();
     #pragma omp parallel
     {
         #pragma omp master
         {
-            backtrack_par(points, 1, 0, curr_sol, std::numeric_limits<double>::max(), best_sol, used);
+            backtrack_par(points, 1, 0, curr_sol, best_cost, best_sol, used);
         }
     }
     auto end_time = std::chrono::high_resolution_clock::now();
