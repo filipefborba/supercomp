@@ -22,7 +22,7 @@ double path_dist(std::vector<int> &seq, std::vector<std::pair<double,double>> &p
 double backtrack_seq(std::vector<std::pair<double,double>> &points, int idx, double curr_cost,
 std::vector<int> &curr_sol, double &best_cost, std::vector<int> &best_seq, std::vector<bool> &used) {
     if (curr_cost > best_cost) return best_cost;
-    
+
     if (idx == points.size()) {
         curr_cost += dist(points[curr_sol[0]], points[curr_sol.back()]);
         if (curr_cost < best_cost) {
@@ -64,7 +64,7 @@ std::vector<int> &curr_sol, double &best_cost, std::vector<int> &best_seq, std::
             backtrack_seq(points, 2, new_cost, curr_sol, best_cost, best_seq, used);
 
             used[i] = false;
-            curr_sol[idx] = -1;
+            curr_sol[1] = -1;
         }
     }
     #pragma omp taskwait
