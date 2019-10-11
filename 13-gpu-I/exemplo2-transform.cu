@@ -3,43 +3,31 @@
 #include <thrust/functional.h>
 #include <thrust/transform.h>
 #include <iostream>
+#include <chrono>
 
 int main() {
-    thrust::device_vector<double> V1(10, 0);
-    thrust::sequence(V1.begin(), V1.end());
+    thrust::host_vector<double> host_aapl;
+    thrust::host_vector<double> host_msft;
+    double input;
+    double size = 0;
 
-    thrust::device_vector<double> V2(10, 0);
-    thrust::fill(V2.begin(), V2.begin() + 5, 5.5);
-    thrust::fill(V2.begin()+5, V2.end(), 10);
-
-    thrust::device_vector<double> V3(10);
-    thrust::device_vector<double> V4(10);
-
-    thrust::transform(V1.begin(), V1.end(), V2.begin(), V3.begin(), thrust::plus<double>());
-    thrust::transform(V1.begin(), V1.end(), thrust::constant_iterator<double>(0.5), V4.begin(), thrust::multiplies<double>());
-
-    printf("V1: ");
-    for (thrust::device_vector<double>::iterator i = V1.begin(); i != V1.end(); i++) {
-        std::cout << *i << " ";
+    while (!std::cin.eof()) {
+        std::cin >> input;
+        host_aapl.push_back(input);
+        std::cin >> input;
+        host_msft.push_back(input);
+        size++;
     }
-    printf("\n");
 
-    printf("V2: ");
-    for (thrust::device_vector<double>::iterator i = V2.begin(); i != V2.end(); i++) {
-        std::cout << *i << " ";
-    }
-    printf("\n");
+    thrust::device_vector<double> dev_aapl(host_aapl);
+    thrust::device_vector<double> dev_msft(host_msft);
+    thrust::device_vector<double> result(size);
 
-    printf("V3: ");
-    for (thrust::device_vector<double>::iterator i = V3.begin(); i != V3.end(); i++) {
-        std::cout << *i << " ";
-    }
-    printf("\n");
-
-    printf("V4: ");
-    for (thrust::device_vector<double>::iterator i = V4.begin(); i != V4.end(); i++) {
-        std::cout << *i << " ";
-    }
-    printf("\n");
-
+    auto start_time = std::chrono::high_resolution_clock::now();
+    thrust::transform(dev_aapl.begin(), dev_aapl.end(), dev_msft.begin(), result.begin(), thrust::minus<double>());
+    double mean = thrust::reduce(result.begin(), result.end(), (double) 0, thrust::plus<double>()) / size;
+    auto end_time = std::chrono::high_resolution_clock::now();
+    auto runtime = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+    std::cerr << runtime.count() << " us" << std::endl;
+    std::cout << "Diferença Média " << mean << std::endl;
 }
