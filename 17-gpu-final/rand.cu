@@ -15,7 +15,7 @@ __global__ void gerar(int *out, int n) {
     // números entre 10 e 40
     int temp = 0;
     for (int k = 0; k < 500; k++) {
-        temp += (int) (30 * curand_uniform(&st) + 10);;
+        temp += (int) (30 * curand_uniform(&st) + 10);
     }
     out[i] = temp;
 
