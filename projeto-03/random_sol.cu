@@ -33,7 +33,7 @@ __device__ void swap(int *a, int *b) {
 __global__ void random_sol(int *solutions, double *costs, double *distances, int N) {
     int i = blockIdx.x*blockDim.x+threadIdx.x;
     double solution_cost = 0; // Custo total dessa solucao
-    if (i >= N) return;
+    if (i >= 10000) return; // nSols
 
     // Preenche a solucao em ordem para que possamos permutar depois
     for (int k = 0; k < N; k++) {
