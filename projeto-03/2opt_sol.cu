@@ -136,7 +136,7 @@ int main() {
 
     // ---------------------------------------------------------------------
     // Print do tempo e do melhor caminho
-    #ifndef TIME
+    #ifdef TIME
         std::cout << msecTotal << std::endl;
         std::cout << "milisegundo(s)." << std::endl;
     #endif
