@@ -76,7 +76,7 @@ int main() {
     thrust::device_vector<double> dev_points_distance(N * N);
 
     dim3 threads(BLOCK_SIZE, BLOCK_SIZE);
-    dim3 grid(N / threads.x, N / threads.y);
+    dim3 grid(ceil((double) N / threads.x), ceil((double) N / threads.y));
 
     calc_dist<<<grid,threads>>>(thrust::raw_pointer_cast(dev_x.data()), 
         thrust::raw_pointer_cast(dev_y.data()),
@@ -115,7 +115,7 @@ int main() {
 
     // ---------------------------------------------------------------------
     // Print do tempo e do melhor caminho
-    #ifndef TIME
+    #ifdef TIME
         std::cout << msecTotal << std::endl;
         std::cout << "milisegundo(s)." << std::endl;
     #endif
