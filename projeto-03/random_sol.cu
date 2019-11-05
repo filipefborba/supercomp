@@ -17,6 +17,7 @@
 __global__ void calc_dist(double* X, double* Y, double* Dist, int N) {
     int i = blockIdx.y*blockDim.y+threadIdx.y;
     int j = blockIdx.x*blockDim.x+threadIdx.x;
+    if (i >= N || j >= N) return;
 
     // Essa matriz é simetrica, mas estamos calculando ela inteira. Ponto de otimizacao!
     Dist[i*N+j] = sqrt(pow((X[i] - X[j]), 2) + pow((Y[i] - Y[j]), 2));
@@ -32,6 +33,7 @@ __device__ void swap(int *a, int *b) {
 __global__ void random_sol(int *solutions, double *costs, double *distances, int N) {
     int i = blockIdx.x*blockDim.x+threadIdx.x;
     double solution_cost = 0; // Custo total dessa solucao
+    if (i >= N) return;
 
     // Preenche a solucao em ordem para que possamos permutar depois
     for (int k = 0; k < N; k++) {
