@@ -17,16 +17,16 @@ struct acesso_direto {
 
 
 int main() {
-    thrust::device_vector<double> vec(1000), vec_out(1000);
+    // Nao muda quase nada o tempo do Malloc!
+    thrust::device_vector<double> vec(100000), vec_out(100000);
     thrust::sequence(vec.begin(), vec.end());
     auto index = thrust::make_counting_iterator(0);
     
     acesso_direto op(thrust::raw_pointer_cast(vec.data()));
     thrust::transform(index, index + vec.size(), vec_out.begin(), op);
 
-    for(int i = 0; i < 1000; i++) {
+    // Memcpy vai aumentando bastante
+    for(int i = 0; i < 10000; i++) {
         std::cout << vec_out[i] << std::endl;
     }
-
-
 }
