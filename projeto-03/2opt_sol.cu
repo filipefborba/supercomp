@@ -40,6 +40,7 @@ __device__ double total_cost(int *solutions, double *distances, int i, int N) {
 
 __global__ void opt_sol(int *solutions, double *costs, double *distances, int N) {
     int i = blockIdx.x*blockDim.x+threadIdx.x;
+    if (i >= N) return;
 
     double solution_cost = 0; // Custo total dessa solucao
 
