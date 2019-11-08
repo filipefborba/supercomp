@@ -74,21 +74,21 @@ target_compile_options(par2048 PUBLIC -O3 -fopenmp -DVECTOR_SIZE=2048)
 target_link_libraries(par2048 OpenMP::OpenMP_CXX)
 
 add_executable(seq128
-    seq.cpp
+    seq.cu
 )
 target_compile_options(seq128 PUBLIC -O3 -DVECTOR_SIZE=128)
 
 add_executable(seq512
-    seq.cpp
+    seq.cu
 )
 target_compile_options(seq512 PUBLIC -O3 -DVECTOR_SIZE=512)
 
 add_executable(seq1024
-    seq.cpp
+    seq.cu
 )
 target_compile_options(seq1024 PUBLIC -O3 -DVECTOR_SIZE=1024)
 
 add_executable(seq2048
-    seq.cpp
+    seq.cu
 )
 target_compile_options(seq2048 PUBLIC -O3 -DVECTOR_SIZE=2048)

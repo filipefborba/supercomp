@@ -1,7 +1,6 @@
 // Código Matrix multiplication: C = A * B. Super simplificado.
 
 #include <stdio.h>
-#include <cuda_runtime.h>
 #include <chrono>
 #include <iostream>
 #include <iomanip>
@@ -48,19 +47,13 @@ int main(int argc, char **argv)
     // dim3 grid(size / threads.x, size / threads.y);
 
     // PARALELO
-    cudaEvent_t start, stop;
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
-    cudaEventRecord(start, NULL);
+    auto start_time = std::chrono::high_resolution_clock::now();
     // for (int j = 0; j < nIter; j++) {
         MatrixMulCpuPar(h_A, h_B, h_C, size);
     // }
-    cudaEventRecord(stop, NULL);
-    cudaEventSynchronize(stop);
-    float msecTotal = 0.0f;
-    cudaEventElapsedTime(&msecTotal, start, stop);
-    float msecPerMatrixMul = msecTotal;
-    printf("Time= %f\n", msecPerMatrixMul);
+    auto end_time = std::chrono::high_resolution_clock::now();
+    auto runtime = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+    printf("Time= %f\n", runtime.count());
     // Copy result from device to host
     // cudaMemcpy(h_C, d_C, sizeof(float) * size * size, cudaMemcpyDeviceToHost);
 
@@ -68,14 +61,14 @@ int main(int argc, char **argv)
     //     |<x, y>_cpu - <x,y>_gpu|/<|x|, |y|>  < eps
     double eps = 1.e-6 ; // machine zero
 
-    for (int i = 0; i < (int)(size * size); i++)
-    {
-        double abs_err = fabs(h_C[i] - (size * 1.0f));
-        double abs_val = fabs(h_C[i]);
-        double rel_err = abs_err/abs_val/size ;
-        if (rel_err > eps)
-            printf("Error! Matrix[%05d]=%.8f, ref=%.8f error term is > %E\n", i, h_C[i], size*1.0f, eps);
-    }
+    // for (int i = 0; i < (int)(size * size); i++)
+    // {
+    //     double abs_err = fabs(h_C[i] - (size * 1.0f));
+    //     double abs_val = fabs(h_C[i]);
+    //     double rel_err = abs_err/abs_val/size ;
+    //     if (rel_err > eps)
+    //         printf("Error! Matrix[%05d]=%.8f, ref=%.8f error term is > %E\n", i, h_C[i], size*1.0f, eps);
+    // }
 
     free(h_A); free(h_B); free(h_C);
     // cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
