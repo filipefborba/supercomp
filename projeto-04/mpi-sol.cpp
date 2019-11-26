@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 // ---------------------------------------------------------------------
 // Print do tempo e do melhor caminho
 #ifdef TIME
-        std::cout << msecTotal << std::endl;
+        std::cout << runtime.count() << std::endl;
         std::cout << "milisegundo(s)." << std::endl;
 #endif
 
