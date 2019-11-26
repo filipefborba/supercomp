@@ -78,13 +78,81 @@ Os programas *mpi_latency.c* e *mpi_bandwidth.c* calculam estas medidas no clust
 
 
 #### Resultados locais
+mpicxx mpi_latency.c -o mpi_latency -lboost_mpi -lboost_serialization
+mpiexec -n 2 --hostfile ./hosts ./mpi_bandwidth
 
-\vspace{5em}
+******************** MPI Bandwidth Test ********************
+Message start size= 100000 bytes
+Message finish size= 1000000 bytes
+Incremented by 100000 bytes per iteration
+Roundtrips per iteration= 100
+MPI_Wtick resolution = 1.000000e-09
+************************************************************
+task    0 is on ip-172-31-7-238 partner=   1
+task    1 is on ip-172-31-12-162 partner=   0
+************************************************************
+***Message size:   100000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    479.21 / 441.24 / 287.92 
+   OVERALL AVERAGES:          479.21 / 441.24 / 287.92 
+
+***Message size:   200000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    617.94 / 568.82 / 511.50 
+   OVERALL AVERAGES:          617.94 / 568.82 / 511.50 
+
+***Message size:   300000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    672.10 / 628.95 / 573.07 
+   OVERALL AVERAGES:          672.10 / 628.95 / 573.07 
+
+***Message size:   400000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    717.83 / 670.03 / 602.90 
+   OVERALL AVERAGES:          717.83 / 670.03 / 602.90 
+
+***Message size:   500000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    746.47 / 696.21 / 637.13 
+   OVERALL AVERAGES:          746.47 / 696.21 / 637.13 
+
+***Message size:   600000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    785.00 / 726.91 / 656.01 
+   OVERALL AVERAGES:          785.00 / 726.91 / 656.01 
+
+***Message size:   700000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    794.99 / 743.21 / 471.59 
+   OVERALL AVERAGES:          794.99 / 743.21 / 471.59 
+
+***Message size:   800000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    791.90 / 747.63 / 657.07 
+   OVERALL AVERAGES:          791.90 / 747.63 / 657.07 
+
+***Message size:   900000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    806.42 / 758.71 / 689.12 
+   OVERALL AVERAGES:          806.42 / 758.71 / 689.12 
+
+***Message size:  1000000 *** best  /  avg  / worst (MB/sec)
+   task pair:    0 -    1:    809.24 / 773.26 / 715.53 
+   OVERALL AVERAGES:          809.24 / 773.26 / 715.53 
 
 
 #### Resultados cluster (3 máquinas)
+--------------------------------------------------------------------------
+task 1 has started...
+task 0 has started...
+Beginning latency timing test. Number of reps = 1000.
+***************************************************
+Rep#       T1               T2            deltaT
+   1  610128.85267866  610128.85279052  0.00011185
+   2  610128.85280377  610128.85289533  0.00009156
+   3  610128.85290458  610128.85298976  0.00008517
+   4  610128.85299857  610128.85308735  0.00008878
+   5  610128.85309637  610128.85318804  0.00009167
 
-\vspace{5em}
+...
+ 999  610128.95365881  610128.95374584  0.00008703
+1000  610128.95375470  610128.95384462  0.00008992
+***************************************************
+
+*** Avg round trip time = 91 microseconds
+*** Avg one way latency = 45 microseconds
+
 
 #### Comentários
 
