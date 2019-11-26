@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipefborba/Insper/supercomp/projeto-04/random-sol.cpp
+cmath
+-
+chrono
+-
+iostream
+-
+iomanip
+-
+vector
+-
+utility
+-
+
