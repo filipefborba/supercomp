@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipefborba/Insper/supercomp/projeto-04/mpi-sol.cpp
+boost/mpi.hpp
+-
+boost/mpi/environment.hpp
+-
+boost/mpi/communicator.hpp
+-
+random
+-
+algorithm
+-
+cmath
+-
+chrono
+-
+iostream
+-
+iomanip
+-
+vector
+-
+utility
+-
+

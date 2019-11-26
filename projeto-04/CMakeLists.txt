@@ -15,9 +15,20 @@ add_executable(2opt-sol 2opt-sol.cpp)
 target_compile_options(2opt-sol PUBLIC -O3)
 target_link_libraries(2opt-sol MPI::MPI_CXX Boost::mpi Boost::serialization)
 
+add_executable(time-2opt-sol 2opt-sol.cpp)
+target_compile_options(time-2opt-sol PUBLIC -O3 -DTIME)
+target_link_libraries(time-2opt-sol MPI::MPI_CXX Boost::mpi Boost::serialization)
+
 add_executable(mpi-sol mpi-sol.cpp)
 target_compile_options(mpi-sol PUBLIC -O3)
 target_link_libraries(mpi-sol MPI::MPI_CXX Boost::mpi Boost::serialization)
 
-add_executable(tsp_seq tsp_seq.cpp)
-target_compile_options(tsp_seq PUBLIC -O3)
+add_executable(time-mpi-sol mpi-sol.cpp)
+target_compile_options(time-mpi-sol PUBLIC -O3 -DTIME)
+target_link_libraries(time-mpi-sol MPI::MPI_CXX Boost::mpi Boost::serialization)
+
+add_executable(tsp-seq tsp-seq.cpp)
+target_compile_options(tsp-seq PUBLIC -O3)
+
+add_executable(time-tsp-seq tsp-seq.cpp)
+target_compile_options(time-tsp-seq PUBLIC -O3 -DTIME)
