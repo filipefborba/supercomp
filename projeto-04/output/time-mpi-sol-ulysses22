@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------
-[[7119,1],1]: A high-performance Open MPI point-to-point messaging module
+[[12569,1],0]: A high-performance Open MPI point-to-point messaging module
 was unable to find any relevant network interfaces:
 
 Module: OpenFabrics (openib)
-  Host: ip-172-31-12-162
+  Host: ip-172-31-7-238
 
 Another transport will be used instead, although this may result in
 lower performance.
@@ -11,7 +11,3 @@ lower performance.
 NOTE: You can disable this warning by setting the MCA parameter
 btl_base_warn_component_unused to 0.
 --------------------------------------------------------------------------
-22
-milisegundo(s).
-6303.41552 1
-0 9 5 2 1 7 8 3 4 6 

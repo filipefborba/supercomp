@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------
-[[7119,1],1]: A high-performance Open MPI point-to-point messaging module
+[[7133,1],1]: A high-performance Open MPI point-to-point messaging module
 was unable to find any relevant network interfaces:
 
 Module: OpenFabrics (openib)
@@ -11,7 +11,7 @@ lower performance.
 NOTE: You can disable this warning by setting the MCA parameter
 btl_base_warn_component_unused to 0.
 --------------------------------------------------------------------------
-22
+32
 milisegundo(s).
-6303.41552 1
-0 9 5 2 1 7 8 3 4 6 
+74.75690 0
+0 3 1 2 15 12 13 14 4 10 8 9 5 6 11 7 
